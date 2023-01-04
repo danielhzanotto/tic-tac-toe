@@ -1,8 +1,7 @@
 class Checker:
-    def __init__(self, board):
+    def __init__(self):
         self.is_on = True
         self.line_list = []
-        self.end(board)
 
     def end(self, board):
         self.check_diagonal_1(board)
@@ -11,7 +10,6 @@ class Checker:
         self.check_column(board)
 
     def check_diagonal_1(self, board):
-
         for n in range(3):
             self.line_list.append(board[n + 1][n])
         if len(set(self.line_list)) == 1 and set(self.line_list) != {"-"}:
