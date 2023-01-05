@@ -22,9 +22,10 @@ class Checker:
     def check_diagonal_2(self, board):
         for line in board:
             for house in board[line]:
-                if line + board[line].index(house) == 3:
+                if line + (board[line].index(house) + 1) == 4 and house != "-":
                     self.line_list.append(house)
         if len(self.line_list) == 3 and len(set(self.line_list)) == 1 and set(self.line_list) != {"-"}:
+            print(self.line_list)
             print("diagonal 2")
             self.is_on = False
             self.who_won(self.line_list)
@@ -51,6 +52,6 @@ class Checker:
 
     def who_won(self, list):
         if set(list) == {"X"}:
-            print("Youn Won!!")
+            print("Player X Won!!")
         elif set(list) == {"O"}:
-            print("You lost")
+            print("Planer O Won!!")
